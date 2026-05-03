@@ -35,9 +35,6 @@ export default function Footer() {
         </div>
         
         <div className="mt-8 pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm opacity-80">
-            &copy; {currentYear} Premium Portfolio. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>
