@@ -353,13 +353,13 @@ export default function DecryptedText({
   const animateProps =
     animateOn === 'hover' || animateOn === 'inViewHover'
       ? {
-          onMouseEnter: triggerHoverDecrypt,
-          onMouseLeave: resetToPlainText
-        }
+        onMouseEnter: triggerHoverDecrypt,
+        onMouseLeave: resetToPlainText
+      }
       : animateOn === 'click'
         ? {
-            onClick: handleClick
-          }
+          onClick: handleClick
+        }
         : {};
 
   return (

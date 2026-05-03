@@ -62,19 +62,20 @@ export default function Projects() {
             >
               <div className="relative h-48 w-full overflow-hidden">
                 <div className="absolute inset-0 bg-secondary/20 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  fill
+                  className="object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
-              
+
               <div className="p-6 flex-1 flex flex-col">
                 <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
                 <p className="text-foreground/70 mb-4 flex-1 text-sm leading-relaxed">
                   {project.description}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, tagIndex) => (
                     <span key={tagIndex} className="text-xs font-medium px-2.5 py-1 bg-secondary text-secondary-foreground rounded-md border border-border/50">
@@ -82,19 +83,19 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                
+
                 <div className="flex items-center gap-4 mt-auto">
-                  <a 
-                    href={project.github} 
-                    target="_blank" 
+                  <a
+                    href={project.github}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors"
                   >
                     <FaGithub size={18} /> Code
                   </a>
-                  <a 
-                    href={project.demo} 
-                    target="_blank" 
+                  <a
+                    href={project.demo}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors ml-auto"
                   >
@@ -105,17 +106,17 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8, duration: 0.6 }}
           className="mt-16 text-center"
         >
-          <a 
-            href="https://github.com" 
-            target="_blank" 
+          <a
+            href="https://github.com"
+            target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border hover:bg-secondary transition-colors font-medium"
           >

@@ -41,13 +41,13 @@ export default function About() {
           >
             <h3 className="text-2xl font-semibold mb-4">A bit about my journey</h3>
             <p className="text-foreground/80 mb-6 leading-relaxed">
-              I'm a passionate developer with over 5 years of experience in crafting digital solutions. 
-              My journey started with simple HTML/CSS websites, and today I build complex, scalable web applications 
+              I'm a passionate developer with over 5 years of experience in crafting digital solutions.
+              My journey started with simple HTML/CSS websites, and today I build complex, scalable web applications
               using the latest technologies.
             </p>
             <p className="text-foreground/80 leading-relaxed">
-              When I'm not coding, you can find me exploring new design trends, contributing to open-source, 
-              or enjoying a good cup of coffee while reading about tech innovations. I believe in continuous 
+              When I'm not coding, you can find me exploring new design trends, contributing to open-source,
+              or enjoying a good cup of coffee while reading about tech innovations. I believe in continuous
               learning and always strive to deliver the highest quality of work.
             </p>
           </motion.div>
