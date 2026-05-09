@@ -86,7 +86,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-5xl md:text-7xl font-black mb-8 tracking-tight"
+              className="text-4xl sm:text-5xl md:text-7xl font-black mb-8 tracking-tight"
             >
               Skills & <span className="text-gray-600">Technologies</span>
             </motion.h2>
@@ -132,7 +132,7 @@ const Skills = () => {
         </div>
 
         {/* Moving Tech Bar */}
-        <div className="mb-24 -mx-4 overflow-hidden relative py-6 border-y border-transparent">
+        <div className="mb-24 overflow-hidden relative py-6 border-y border-transparent">
           <div className="flex gap-16 animate-marquee whitespace-nowrap">
             {[...categorizedSkills, ...categorizedSkills].map((skill, i) => (
               <div key={i} className="flex items-center gap-4 group cursor-default">
@@ -165,7 +165,7 @@ const Skills = () => {
         {/* Skills Grid */}
         <motion.div 
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+          className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5"
         >
           <AnimatePresence mode="popLayout">
             {filteredSkills.map((skill, index) => (
@@ -178,11 +178,11 @@ const Skills = () => {
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="group relative"
               >
-                <div className="p-8 bg-card border border-border rounded-xl transition-all duration-700 group-hover:border-primary/30 group-hover:bg-secondary/10 flex items-center gap-8 overflow-hidden">
-                  <div className="text-4xl transition-all duration-700 group-hover:scale-110 group-hover:rotate-[5deg] z-10 filter drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                <div className="p-4 md:p-8 bg-card border border-border rounded-xl transition-all duration-700 group-hover:border-primary/30 group-hover:bg-secondary/10 flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-3 sm:gap-8 overflow-hidden text-center sm:text-left h-full">
+                  <div className="text-3xl md:text-4xl transition-all duration-700 group-hover:scale-110 group-hover:rotate-[5deg] z-10 filter drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
                     {skill.icon}
                   </div>
-                  <span className="text-lg font-bold tracking-tight text-muted-foreground group-hover:text-foreground transition-colors duration-700 z-10">
+                  <span className="text-sm md:text-lg font-bold tracking-tight text-muted-foreground group-hover:text-foreground transition-colors duration-700 z-10">
                     {skill.name}
                   </span>
                   

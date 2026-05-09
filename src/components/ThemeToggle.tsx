@@ -19,12 +19,12 @@ export function ThemeToggle() {
   };
 
   return (
-    <div className="fixed top-0 right-10 z-[100] flex flex-col items-center group cursor-pointer" onClick={toggleTheme}>
+    <div className="fixed top-0 right-4 sm:right-10 z-[100] flex flex-col items-center group cursor-pointer" onClick={toggleTheme}>
       {/* The Hanging String */}
       <motion.div 
         initial={false}
         animate={{ 
-          height: isDark ? 60 : 90,
+          height: isDark ? (typeof window !== 'undefined' && window.innerWidth < 640 ? 40 : 60) : (typeof window !== 'undefined' && window.innerWidth < 640 ? 60 : 90),
           backgroundColor: isDark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.1)"
         }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}

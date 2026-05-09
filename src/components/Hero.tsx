@@ -55,8 +55,8 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="space-y-6 text-center lg:text-left"
           >
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
-              Hi, I'm <br className="hidden md:block" />
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
+              Hi, I'm <br className="hidden sm:block" />
               <DecryptedText
                 text="Aravinthrajan K"
                 animateOn="view"
@@ -69,31 +69,31 @@ export default function Hero() {
               />
             </h1>
 
-            <h2 className="text-2xl md:text-4xl font-semibold text-foreground/80 mt-2">
+            <h2 className="text-xl sm:text-2xl md:text-4xl font-semibold text-foreground/80 mt-2">
               Creative Full-Stack Developer
             </h2>
 
-            <p className="mt-6 text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto lg:mx-0">
+            <p className="mt-6 text-base sm:text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto lg:mx-0">
               Computer Science student and Full-stack Developer specializing in building 
               high-performance web applications and corporate platforms with modern UI/UX.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
-              <Link href="#projects">
+              <Link href="#projects" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold flex items-center gap-2 hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+                  className="w-full px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
                 >
                   View My Work <ArrowRight size={18} />
                 </motion.button>
               </Link>
 
-              <Link href="/Aravv's Resume.pdf" target="_blank">
+              <Link href="/Aravv's Resume.pdf" target="_blank" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 rounded-full bg-secondary text-secondary-foreground font-semibold flex items-center gap-2 hover:bg-secondary/80 transition-colors border border-border"
+                  className="w-full px-8 py-3 rounded-full bg-secondary text-secondary-foreground font-semibold flex items-center justify-center gap-2 hover:bg-secondary/80 transition-colors border border-border"
                 >
                   Download CV <Download size={18} />
                 </motion.button>
