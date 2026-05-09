@@ -9,30 +9,30 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: "soon",
-      description: "soon",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=2000&auto=format&fit=crop",
-      tags: ["soon", "soon", "soon", "soon"],
-      github: "https://github.com",
-      demo: "https://example.com"
+      title: "Labour Management System",
+      description: "A full-stack system for real-world garment businesses. Automates salary calculations and real-time attendance tracking with performance dashboards and analytics. Built as a mobile-responsive PWA.",
+      image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2000&auto=format&fit=crop",
+      tags: ["React", "Node.js", "MongoDB", "PWA", "Analytics"],
+      github: "https://github.com/Aravinth7708",
+      demo: "#"
     },
     {
       id: 2,
-      title: "soon",
-      description: "soon",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop",
-      tags: ["soon", "soon", "soon", "soon"],
-      github: "https://github.com",
-      demo: "https://example.com"
+      title: "Retail Insights System",
+      description: "Comprehensive POS and inventory system using React and Supabase. Features real-time transaction tracking, secure admin control, and automated PDF reporting. Optimized for fast-paced retail environments.",
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2000&auto=format&fit=crop",
+      tags: ["React", "Supabase", "PDF Export", "Tailwind CSS"],
+      github: "https://github.com/Aravinth7708",
+      demo: "#"
     },
     {
       id: 3,
-      title: "soon",
-      description: "soon",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop",
-      tags: ["soon", "soon", "soon", "soon"],
-      github: "https://github.com",
-      demo: "https://example.com"
+      title: "Car Rental Webpage",
+      description: "A high-performance responsive car rental web app with optimized UI/UX. Features efficient booking workflows and cross-device compatibility for a seamless user experience.",
+      image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2000&auto=format&fit=crop",
+      tags: ["Next.js", "Framer Motion", "UI/UX", "Responsive"],
+      github: "https://github.com/Aravinth7708",
+      demo: "#"
     }
   ];
 

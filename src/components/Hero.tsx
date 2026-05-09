@@ -40,9 +40,9 @@ export default function Hero() {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background Gradients */}
       <div className="absolute inset-0 bg-background z-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-accent rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl dark:opacity-20 opacity-0 animate-blob"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-accent rounded-full mix-blend-multiply filter blur-3xl dark:opacity-20 opacity-0 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl dark:opacity-20 opacity-0 animate-blob animation-delay-4000"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -74,8 +74,8 @@ export default function Hero() {
             </h2>
 
             <p className="mt-6 text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto lg:mx-0">
-              I build exceptional and accessible digital experiences for the web.
-              Transforming ideas into elegant, responsive, and performant applications.
+              Computer Science student and Full-stack Developer specializing in building 
+              high-performance web applications and corporate platforms with modern UI/UX.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
@@ -89,7 +89,7 @@ export default function Hero() {
                 </motion.button>
               </Link>
 
-              <Link href="/resume.pdf" target="_blank">
+              <Link href="/Aravv's Resume.pdf" target="_blank">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

@@ -113,19 +113,23 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0); /* Deep Navy */
+  --background: oklch(0.145 0 0);
+  /* Deep Navy */
   --foreground: oklch(0.985 0 0);
 
-  --primary: oklch(0.922 0 0); /* Royal Purple */
+  --primary: oklch(0.922 0 0);
+  /* Royal Purple */
   --primary-foreground: oklch(0.205 0 0);
 
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
 
-  --accent: oklch(0.269 0 0); /* Gold Accent */
+  --accent: oklch(0.269 0 0);
+  /* Gold Accent */
   --accent-foreground: oklch(0.985 0 0);
 
-  --card: oklch(0.205 0 0); /* Glassmorphism card */
+  --card: oklch(0.205 0 0);
+  /* Glassmorphism card */
   --card-foreground: oklch(0.985 0 0);
 
   --border: oklch(1 0 0 / 10%);
@@ -194,10 +198,21 @@ html {
 }
 
 @keyframes blob {
-  0% { transform: translate(0px, 0px) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
-  100% { transform: translate(0px, 0px) scale(1); }
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
 }
 
 .animate-blob {
@@ -216,9 +231,11 @@ html {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }

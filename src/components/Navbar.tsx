@@ -3,99 +3,77 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useTheme } from "next-themes";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     setMounted(true);
+    const handleScroll = () => {
+      const sections = ["home", "skills", "projects", "about", "contact"];
+      const current = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top >= -100 && rect.top <= 300;
+        }
+        return false;
+      });
+      if (current) setActiveSection(current);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "#home", id: "home" },
+    { name: "Skills", href: "#skills", id: "skills" },
+    { name: "Projects", href: "#projects", id: "projects" },
+    { name: "About", href: "#about", id: "about" },
+    { name: "Contact", href: "#contact", id: "contact" },
   ];
 
+  if (!mounted) return null;
+
   return (
-    <header className="fixed top-0 w-full z-50 glass border-b border-border transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-              Portfolio.
-            </Link>
-          </div>
-
-          {/* Desktop Menu */}
-          <nav className="hidden md:flex space-x-8 items-center">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-foreground hover:text-primary transition-colors text-sm font-medium"
-              >
-                {link.name}
-              </Link>
-            ))}
-            
-            {mounted && (
-              <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="p-2 rounded-full hover:bg-secondary transition-colors"
-                aria-label="Toggle Dark Mode"
-              >
-                {theme === "dark" ? <Sun size={20} className="text-accent" /> : <Moon size={20} className="text-primary" />}
-              </button>
-            )}
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            {mounted && (
-              <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="p-2 mr-2 rounded-full hover:bg-secondary transition-colors"
-                aria-label="Toggle Dark Mode"
-              >
-                {theme === "dark" ? <Sun size={20} className="text-accent" /> : <Moon size={20} className="text-primary" />}
-              </button>
-            )}
-            <button
-              onClick={toggleMenu}
-              className="p-2 rounded-md text-foreground hover:text-primary hover:bg-secondary focus:outline-none transition-colors"
+    <header className="fixed bottom-12 md:top-6 md:bottom-auto w-full z-50 flex justify-center px-4 pointer-events-none">
+      <motion.nav 
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className="glass rounded-full border border-border px-1.5 py-1.5 flex items-center gap-1 shadow-2xl backdrop-blur-md pointer-events-auto"
+      >
+        <div className="flex items-center gap-0.5 md:gap-1">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              onClick={() => setActiveSection(link.id)}
+              className="relative px-3 md:px-6 py-2 md:py-2.5 text-[11px] md:text-sm font-bold transition-colors duration-300 rounded-full"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden glass border-b border-border">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:text-primary hover:bg-secondary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <span className={`relative z-10 transition-colors duration-300 ${activeSection === link.id ? 'text-white' : 'text-foreground/60 hover:text-foreground'}`}>
                 {link.name}
-              </Link>
-            ))}
-          </div>
+              </span>
+              {activeSection === link.id && (
+                <motion.div
+                  layoutId="activePill"
+                  className="absolute inset-0 bg-foreground rounded-full z-0 shadow-lg"
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                />
+              )}
+              {/* Theme-aware active text color */}
+              <style jsx>{`
+                .text-white { color: ${activeSection === link.id ? 'var(--background)' : 'inherit'}; }
+              `}</style>
+            </Link>
+          ))}
         </div>
-      )}
+      </motion.nav>
     </header>
   );
 }
+
 

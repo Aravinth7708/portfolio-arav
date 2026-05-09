@@ -11,6 +11,7 @@ type FormData = {
   email: string;
   subject: string;
   message: string;
+  botcheck: string;
 };
 
 export default function Contact() {
@@ -18,12 +19,33 @@ export default function Contact() {
   const [isSuccess, setIsSuccess] = useState(false);
 
   const onSubmit = async (data: FormData) => {
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log(data);
-    setIsSuccess(true);
-    reset();
-    setTimeout(() => setIsSuccess(false), 5000);
+    // Note: To receive real emails, you can get a free access key from https://web3forms.com
+    const formData = new FormData();
+    formData.append("access_key", "b9b1e67d-8fad-4d74-8c1e-c9fda0402526");
+    formData.append("name", data.name);
+    formData.append("from_name", data.name);
+    formData.append("email", data.email);
+    formData.append("replyto", data.email);
+    formData.append("subject", `New Portfolio Message: ${data.subject}`);
+    formData.append("message", data.message);
+    
+    // Bot check (honeypot)
+    if (data.botcheck) return; 
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      if (response.ok) {
+        setIsSuccess(true);
+        reset();
+        setTimeout(() => setIsSuccess(false), 5000);
+      }
+    } catch (error) {
+      console.error("Form submission error", error);
+    }
   };
 
   return (
@@ -62,7 +84,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg">Email</h4>
-                  <a href="mailto:aravinthrajan390@gmail.com" className="text-foreground/70 hover:text-primary transition-colors">aravinthrajan390@gmail.com</a>
+                  <a href="mailto:aravinthrajan9095@gmail.com" className="text-foreground/70 hover:text-primary transition-colors">aravinthrajan9095@gmail.com</a>
                 </div>
               </div>
               
@@ -103,7 +125,7 @@ export default function Contact() {
                     id="name"
                     {...register("name", { required: "Name is required" })}
                     className={`w-full px-4 py-3 rounded-lg bg-background border ${errors.name ? 'border-red-500' : 'border-border'} focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors`}
-                    placeholder="John Doe"
+                    placeholder="Enter your name"
                   />
                   {errors.name && <span className="text-red-500 text-xs mt-1 block">{errors.name.message}</span>}
                 </div>
@@ -117,7 +139,7 @@ export default function Contact() {
                       pattern: { value: /^\S+@\S+$/i, message: "Invalid email address" }
                     })}
                     className={`w-full px-4 py-3 rounded-lg bg-background border ${errors.email ? 'border-red-500' : 'border-border'} focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors`}
-                    placeholder="john@example.com"
+                    placeholder="Enter your email"
                   />
                   {errors.email && <span className="text-red-500 text-xs mt-1 block">{errors.email.message}</span>}
                 </div>
@@ -145,6 +167,9 @@ export default function Contact() {
                 ></textarea>
                 {errors.message && <span className="text-red-500 text-xs mt-1 block">{errors.message.message}</span>}
               </div>
+
+              {/* Honeypot field - hidden from users to catch bots */}
+              <input type="checkbox" {...register("botcheck")} className="hidden" style={{ display: 'none' }} />
 
               <button
                 type="submit"

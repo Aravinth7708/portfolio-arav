@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary text-secondary-foreground py-12 mt-20 border-t border-border">
+    <footer className="bg-secondary text-secondary-foreground py-12 mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
@@ -19,16 +19,13 @@ export default function Footer() {
           </div>
 
           <div className="flex space-x-6">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="GitHub">
+            <a href="https://github.com/Aravinth7708" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="GitHub">
               <FaGithub size={24} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/aravinthrajan-k-819664290?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="LinkedIn">
               <FaLinkedin size={24} />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Twitter">
-              <FaTwitter size={24} />
-            </a>
-            <a href="mailto:hello@example.com" className="hover:text-primary transition-colors" aria-label="Email">
+            <a href="mailto:aravinthrajan9095@gmail.com" className="hover:text-primary transition-colors" aria-label="Email">
               <Mail size={24} />
             </a>
           </div>
