@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Anek_Latin, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+
 import ScrollToTop from "@/components/ScrollToTop";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
@@ -109,9 +108,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ThemeToggle />
-          <Navbar />
-          <main className="flex-grow">{children}</main>
-          <Footer />
+          {children}
           <ScrollToTop />
         </ThemeProvider>
       </body>
